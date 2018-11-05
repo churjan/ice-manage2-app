@@ -1,0 +1,4 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view>
+	<order-list-detail data="{{orderDetail}}"></order-list-detail>
+</view>

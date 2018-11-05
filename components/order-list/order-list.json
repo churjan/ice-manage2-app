@@ -1,0 +1,6 @@
+{
+	"component": true,
+	"usingComponents": {
+		"order-list-detail": "/components/order-list-detail/order-list-detail"
+	}
+}

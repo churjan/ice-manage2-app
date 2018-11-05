@@ -1,0 +1,14 @@
+<view class='order-list'>
+	<view class='list-item' wx:for="{{data}}" wx:key="{{index}}" data-index="{{index}}">
+		<view class='list-title ellipsis'>
+			<text>{{item.shop_name}}({{item.shop_sn}})</text>
+		</view>
+		<view class='bottom'>
+			<view class="time">配送地址：{{item.delivery_address}}</view>
+			<view class='confirm-item' bindtap="confirm" data-item="{{item}}">确认布点</view>
+		</view>
+	</view>
+    <view class='empty' wx:if="{{data.length == 0}}">
+		当前无待配送设备
+	</view>
+</view>

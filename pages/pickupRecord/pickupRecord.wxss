@@ -1,0 +1,48 @@
+@import "../../template/date-picker/date-picker.wxss";
+@import '../../template/loading/loading.wxss';
+/* .history-wrap{
+	min-height: 90vh;
+} */
+.search-item-box{
+	background: #f8f8f8;
+	padding: 25rpx 0;
+	border-bottom: 1rpx solid #ddd;
+}
+.ice-header{
+	width: calc(100vw - 60rpx);
+	height: 90rpx;
+    line-height: 90rpx;
+    margin:auto;
+	background: #fff;
+	font-size: 34rpx;
+	color: #6f6f6f;
+	border-radius: 20rpx;
+	border: 1rpx solid #f3f3f3;
+	box-shadow: 1px 1px 10px #f3f3f3;
+}
+.ice-search{
+    height: 100%;
+    line-height: 90rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+	color: #ababab;
+    font-size: 34rpx;
+}
+.ice-search text{
+	display: inline-block;
+	width: 200rpx;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	color: #333;
+}
+.ice-search text:nth-of-type(1){
+	padding-right: 30rpx;
+}
+.date-icon{
+	width: 32rpx;
+	height: 28rpx;
+}
+.footer{
+    position: relative;
+    margin-top: 30rpx;
+}

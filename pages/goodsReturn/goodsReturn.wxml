@@ -1,0 +1,24 @@
+<view class='order-list stick-container'>
+	<view class='list-item' wx:for="{{returnList}}" wx:key="{{index}}" bindtap='toDetail' data-id="{{item.rc_id}}" data-index="{{index}}">
+		<view class='list-title'>
+			<text>退货单号: {{item.return_sn}}</text>
+			<view>详情</view>
+		</view>
+		<!-- <view>退货门店：{{item.shop_name}}</view> -->
+		<view>退货仓库：{{item.warehouse_name}}</view>
+		<view class='bottom'>
+			<view class='time'>退货日期：{{item.create_time}}</view>
+			<view class='status-item {{item.status == 1? "status-wait" : item.status == 2?"status-get":item.status == 3?"status-back":""}}'>{{item.status == 1?'待审核':item.status == 2?'已通过':item.status == 3? '已驳回' :''}}</view>
+		</view>
+	</view>
+</view>
+<view class="stick-footer">
+    <text wx:if="{{!allLoad}}">上滑加载更多退货单...</text>
+    <view wx:if="{{allLoad}}">
+        <text>已加载全部数据</text>
+    </view>
+</view>
+<view class="btn-container">
+    <button class="theme-button" bindtap="toNewReturn">新增退货单</button>
+</view>
+

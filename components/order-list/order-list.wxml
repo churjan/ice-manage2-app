@@ -1,0 +1,14 @@
+<view class='order-list' wx:if="{{showOrderList}}">
+	<view class='list-item' wx:for="{{data}}" wx:key="{{index}}" bindtap='toDetail' data-sn="{{item.g_e_id}}" data-index="{{index}}">
+		<view class='list-title'>
+			<text>出库单: {{item.order_num}}</text>
+			<view>详情</view>
+		</view>
+		<view>出库门店：{{item.shop_name}}</view>
+		<view>出库SKU数：{{item.sku_count}} 出库商品数：{{item.goods_count}}</view>
+		<view class='bottom'>
+			<view class='time'>出库日期：{{item.create_time}}</view>
+			<view class='status-item {{item.is_deliveryman_get == 1?"status-get":item.is_deliveryman_get == 2?"status-finish":""}}'>{{item.is_deliveryman_get == 2?'已领取':item.is_deliveryman_get == 3?'已完成':''}}</view>
+		</view>
+	</view>
+</view>

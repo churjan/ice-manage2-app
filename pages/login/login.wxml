@@ -1,0 +1,28 @@
+<view class='login-container'>
+	<view class='login'>
+		<view class='logo'>
+			<image src='{{logo.img}}'></image>
+			<view class='mini-name-container'>
+				<text>{{logo.name}}</text>
+			</view>
+		</view>
+		<view class='login-item'>
+			<image class='u' src='../../pic/login_user_ico.png'></image>
+			<input type='text' placeholder='输入你的账号' placeholder-class='placeholder-class' bindinput='userInput' bindfocus='userFocus' bindblur='userBlur' value='{{username}}' focus='{{uf}}'>{{username}}</input>
+			<view class='cha' bindtap='clearname' data-cha='user' hidden='{{!userCha}}'>
+				<image src='../../pic/cha.png'></image>
+			</view>
+		</view>
+		<view class='login-item'>
+			<image class='p' src='../../pic/login_password_ico.png'></image>
+			<!--"{{!passCha ? 'password' : 'text'}}" -->
+			<input type="password" placeholder='输入密码'  hidden='{{passCha}}' placeholder-class='placeholder-class' bindinput='pswInput' value='{{password}}'>{{password}}</input>
+			<input type="text" placeholder='输入密码' hidden='{{!passCha}}' placeholder-class='placeholder-class' bindinput='pswInput' value='{{password}}'>{{password}}</input>
+			<view class='cha eyes' bindtap='changeType'>
+				<image src='../../pic/close_ico.png' hidden='{{passCha}}'></image>
+				<image src='../../pic/open_ico.png' hidden='{{!passCha}}'></image>
+			</view>
+		</view>
+		<button class='h' hover-class='hover-class' bindtap='login'>登录</button>
+	</view>
+</view>

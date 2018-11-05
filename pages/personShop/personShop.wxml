@@ -1,0 +1,20 @@
+<view class="stick-container">
+    <view class="person-shop">
+        <view class="person-title col after-line">
+            <view>SKU</view>
+            <view class="{{sort == 0 ? 'sort-default' : sort == 1 ? 'sort-ascend' : 'sort-des'}}" bindtap="sort">数量</view>
+        </view>
+        <view class="total col after-line">
+            <view>总计</view>
+            <view>{{allCount}}</view>
+        </view>
+        <view class="item-list col after-line" wx:for="{{shopList}}" wx:key="{{index}}">
+            <view class="goods-name">{{item.g_sku_name}}</view>
+            <view>{{item.goods_count >= 0 ? item.goods_count : 0}}</view>
+        </view>
+    </view>
+</view>
+<view class="stick-footer">
+    <text wx:if="{{!allLoad}}">上滑加载更多SKU...</text>
+    <text wx:if="{{allLoad}}">已加载全部数据</text>
+</view>

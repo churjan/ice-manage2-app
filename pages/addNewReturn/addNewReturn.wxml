@@ -1,0 +1,17 @@
+<view class="addNewReturn stick-container">
+    <view class="item" wx:for="{{returnList}}" wx:key="{{index}}" data-index="{{index}}" bindtap='beChecked'>
+        <view class="check-image">
+            <image src="{{item.checked ? '../../pic/checked.png' : '../../pic/unchecked.png'}}"></image>
+        </view>
+        <view class="shop-info">
+            <text>{{item.barcode}}</text>
+            <text>{{item.g_sku_name}}</text>
+        </view>
+        <view class="input {{index == clickIndex ? 'color-input' : ''}}">
+            <input value='{{item.goods_count}}' type="number" catchtap='preventDefault' data-index="{{index}}" bindinput='changeValue' bindblur="onBlur"></input>
+        </view>
+    </view>
+</view>
+<view class="bg-container">
+    <button class="theme-button {{canClick? '' : 'disable-button'}}" bindtap="toNewReturn">确认</button>
+</view>

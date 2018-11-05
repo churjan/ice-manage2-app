@@ -1,0 +1,59 @@
+/* components/sku-list/sku-list.wxss */
+.after-box::after{
+    content: '';
+    height: 28rpx;
+    background: #f8f8f8;
+    border-top: 1rpx solid #e5e5e5;
+    border-bottom: 1rpx solid #e5e5e5;
+    display: block;
+}
+.ice-detail-list.after-box::after{
+    border-top: 0
+}
+.not-pull{
+    width: 36rpx;
+    height: 21rpx;
+    /* float: right;
+    margin-top: 39rpx; */
+	position: absolute;
+	top: 39rpx;
+	right:50rpx;
+    transition: all 0.2s;
+}
+.pull-detail{
+    transform: rotateX(180deg)
+}
+.item-label{
+    padding-right: 30rpx;
+}
+.ice-detail-list .list-item{
+    min-height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    font-size: 32rpx;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+}
+.ice-detail-list .sku-item{
+    padding: 0!important;
+}
+.list-item-pd{
+	position: relative;
+    padding: 0 50rpx;
+}
+.ice-detail-list .list-item:first-child{
+    color:#f7941e;
+}
+/*****rfid冰箱样式*****/
+.list-item-pd .rf-item-label{
+	float: left;
+	width: 550rpx;
+	padding-right:0;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.rf-item-count{
+	float: left;
+	width: 80rpx;
+}

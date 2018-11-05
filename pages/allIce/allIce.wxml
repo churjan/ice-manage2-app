@@ -1,0 +1,71 @@
+<!--pages/allIce/allIce.wxml-->
+<view>
+    <view class="search-container"> 
+        <input placeholder='搜索便利盒名' class="search-input" placeholder-style='color: #ababab' bindinput='searchInput' bindconfirm='getIceList'></input>
+        <image src='/pic/search_ice.png' class="search-ico" bindtap='getIceList'></image>
+    </view>
+    <view class="search-lists">
+        <view class="ice-list" wx:for="{{iceList}}" wx:key="{{index}}" wx:if="{{iceList.length>0 && isReady}}">
+            <view class="left">
+                <view class='left-point'>
+                    <text class='{{item.shop_state == 3 ? "bad-point" : "good-point"}}'></text>
+                </view>
+                <view class='left-shop'>
+                    <view class="name ellipsis">{{item.shop_name}}</view>
+                    <view class="num">商品库存: {{item.on_sale_count?item.on_sale_count:0}}</view>
+                </view>
+            </view>
+            <view class="right">
+                <text data-iceid='{{item.shop_sn}}' data-shopid='{{item.shop_id}}' data-shoptype='{{item.shop_type}}' data-shopname='{{item.shop_name}}' bindtap='detailIce'>设备</text>
+                <text data-iceid='{{item.shop_sn}}' data-shopid='{{item.shop_id}}' data-shoptype='{{item.shop_type}}' data-shopname='{{item.shop_name}}' bindtap='checkIce'>选择</text>
+            </view>
+        </view>
+		<view class='empty'  wx:if="{{iceList.length == 0 && isReady && searchkey}}">搜索不到相关设备</view>
+    </view>
+    <view class='shop-detail' wx:if="{{show_onoff}}" catchtap='cancle' data-cancel="true">
+        <view class='shop-body'>
+            <view class='shop-header'> 
+                <view class='shop-header-item1'>
+                    <text>便利盒设备</text>
+                    <text catchtap='cancle' data-cancel="true">取消</text>
+                </view>
+                <view class='shop-header-item2'>
+                    <text>{{detail.shop_name}}</text>
+                    <text>{{detail.address+'（'+detail.lnt_lat+'）'}}</text>
+                    <view class="reset" bindtap="reset">
+                        <text>重置</text>    
+                    </view>
+                </view>
+            </view>
+            <view class='shop-main'>
+				<view class='shop-main-item0'>
+                    <text>心跳时间</text>
+                    <view class='point-wrap'> 
+                        <text class='{{detail.heartbeat_time_status == 1?"warn-text":"good-text"}}'>{{detail.heartbeat_time}}</text>
+                    </view>
+                </view>
+                <view class='shop-main-item1'>
+                    <text>门锁</text>
+                    <view class='point-wrap'>
+					<!-- detail.lock_status == 0 ?"bad-point" : "good-point"-->
+                        <text>{{detail.lock_status == 0 ?'已锁':detail.lock_status == 1 ?'开锁':''}}</text>
+                    </view>
+                </view>
+                <view class='shop-main-item2' wx:if="{{detail.box_type==2}}">
+                    <text>摄像头</text>
+                    <view class='point-wrap'>
+                        <text wx:for="{{detail.camera_status}}" wx:key="{{index}}" class='{{item.status == 1 ? "bad-point" : "good-point"}}'></text>
+                    </view>
+                </view>
+                <view class='shop-main-item3'>
+                    <text>信号强度</text>
+					<image src='{{detail.signal_level==1?"/pic/one_signal.png":detail.signal_level==2?"/pic/two_signal.png":detail.signal_level==3?"/pic/three_signal.png":detail.signal_level==4?"/pic/four_signal.png":"/pic/no_signal.png"}}'></image>
+                </view>
+            </view>
+            <view class='shop-bottom'>
+                <view catchtap='rebootDevice'>重启设备</view>
+                <view catchtap='openDoor'>开门</view>
+            </view>
+        </view>
+    </view>
+</view>

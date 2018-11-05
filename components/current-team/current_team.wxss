@@ -1,0 +1,121 @@
+.team-choosed{
+	position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.team-item{
+	width: 100%;
+	/* min-height: 750rpx; */
+	height: 100vh;
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	background: #fff;
+}
+.operation{
+	display: flex;
+	padding: 0 50rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	vertical-align: middle;
+}
+.operation image{
+	vertical-align: middle;
+	width: 28rpx;
+	height: 28rpx;
+	margin-top: 36rpx;
+}
+.oper-title{
+	flex: 1;
+	text-align: center;
+}
+.oper-do{
+	text-align: right;
+	color: #f7941e;
+}
+.search-item{
+	height: 150rpx;
+	border-top: 1rpx solid #eee;
+	/* border-bottom: 1rpx solid #eee; */
+	position: relative;
+}
+.search-input{
+	width: 555rpx;
+	height: 88rpx;
+	line-height: 90rpx;
+	border: 1rpx solid #eee;
+	border-radius: 15rpx;
+	margin: 30rpx auto;
+	padding: 0 30rpx 0 70rpx;
+}
+.search-ico{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    left: 70rpx;
+    top: 60rpx;
+    z-index: 999;
+}
+.search-line{
+	line-height: 70rpx;
+	padding-left: 50rpx;
+	color: #545454;
+	font-size: 28rpx;
+	background: #f8f8f8;
+}
+.pull-search-item{
+	width: 624rpx; 
+	padding: 0 30rpx;
+	max-height: 344rpx;
+	position: absolute;
+	background: #f8f8f8;
+	left: 34rpx;
+	top: 215rpx;
+	overflow: scroll;
+	border-left: 1rpx solid #ddd;
+	border-right: 1rpx solid  #ddd;
+	border-bottom: 1rpx solid #ddd;
+}
+.pull-search{
+	line-height: 88rpx;
+}
+.people-list{
+	padding: 0 50rpx;
+	height: 600rpx;
+	overflow: scroll;
+}
+.people-list .list-item{
+	overflow: hidden;
+	height: 99rpx;
+	line-height: 100rpx;
+	border-bottom: 1rpx solid #eee;
+}
+
+.people-list .list-item image.member-sign{
+	float: left;
+	margin-right: 20rpx;
+}
+.memer-sign-cap{
+	width: 29rpx;
+	height: 32rpx;
+}
+.memer-sign-mem{
+	width: 23rpx;
+	height: 28rpx;
+}
+.people-list .list-item image.member-oper{
+	width: 28rpx;
+	height: 28rpx;
+	float: right;
+	margin-top: 36rpx;
+}
+.people-list .list-item text.member-oper{
+	float: right;
+}
+.people-list .list-item image{
+	margin-top: 36rpx;
+}

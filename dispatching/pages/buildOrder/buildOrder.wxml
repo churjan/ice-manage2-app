@@ -1,0 +1,37 @@
+<view class="stick-container">
+    <view class="main">
+        <view class="add-button" bindtap='back'>添加便利盒</view>
+        <view class="item-list">
+            <view class="item" wx:for="{{shopList}}" wx:key="{{index}}">
+                <view class="shop-name ellipsis">{{item.shop_name}}</view>
+                <view bindtap='removeItem' data-index= "{{index}}">
+                    <image class="close" src="../../../pic/big_close_ico.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="after-box"></view>
+        <!-- 已填写地址 -->
+        <view class="address-ico address after-line" bindtap='writeAddress' wx:if="{{address}}">
+            <view>配送地址：</view>
+            <view class="ellipsis">{{address}}</view>
+        </view>
+        <!-- 填写地址 -->
+        <view class="address-ico un-address" bindtap='writeAddress' wx:if="{{!address}}">
+            填写配送地址
+        </view>
+    </view>
+</view>
+<!-- 浮层 -->
+<view class="float-floor" catchtap='hideFloat' wx:if="{{showFloat}}" data-hide="true">
+    <view class="float-main">
+        <view class="title">确认配送地址</view>
+        <textarea placeholder='请输入配送地址' class="text-area" value="{{address}}" bindinput='addressInput'></textarea>
+        <view class="float-button">
+            <view class="cancel-button" data-hide="true" catchtap='hideFloat'>取消</view>
+            <view class="confirm-button" bindtap="confirm">确认</view>
+        </view>
+    </view>
+</view>
+<view class="bg-container">
+    <button class="theme-button {{address ? '' : 'disable-button'}}" bindtap="buildNewCode">生成配送单</button>
+</view>

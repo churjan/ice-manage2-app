@@ -1,0 +1,9 @@
+<template name="finishTip">
+	<view class='finish-mask' hidden='{{showTip}}'>
+		<view class='finish-tip'>
+			<image src='../../pic/{{icon}}'></image>
+			<text wx:if="{{text1}}">{{text1}}</text>
+			<text wx:if="{{text2}}">{{text2}}</text>
+		</view>
+	</view>
+</template>

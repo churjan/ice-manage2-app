@@ -1,0 +1,40 @@
+<view class="stick-container">
+    <view class="search-container">
+        <input placeholder='搜索便利盒名称' class="search-input" placeholder-style='color: #ababab' bindinput='searchInput' bindconfirm='getAllData'></input>
+        <image src='/pic/search_ice.png' class="search-ico" bindtap='getIceList'></image>
+    </view>
+    <view class="search-lists">
+        <view class="ice-list" wx:for="{{iceList}}" wx:key="{{index}}">
+            <view class="left">
+                <view class='left-point'>
+                    <text class='{{item.shop_state == 3 ? "bad-point" : "good-point"}}'></text>
+                </view>
+                <view class='left-shop'>
+                    <text class="name">{{item.shop_name}}</text>
+                    <text class="num">商品库存: {{item.on_sale_count?item.on_sale_count:0}}</text>
+                </view>
+            </view>
+            <view class="right">
+                <text data-iceid='{{item.shop_sn}}' data-shopid='{{item.shop_id}}' data-shoptype='{{item.shop_type}}' data-shopname='{{item.shop_name}}' bindtap='detailIce'>设备</text>
+                <text data-iceid='{{item.shop_sn}}' data-shopid='{{item.shop_id}}' data-shoptype='{{item.shop_type}}' data-shopname='{{item.shop_name}}' bindtap='checkIce'>选择</text>
+            </view>
+        </view>
+    </view>
+    <view class='empty' wx:if="{{!hasData}}">
+		当前无设备
+	</view>
+    <view class="area-list" wx-if="{{hasData}}">
+        <view class="area-item" wx:for="{{allData}}" wx:for-item="area" wx:for-index="areaIndex" wx:key="{{areaIndex}}">
+            <view class="area">{{area.area_name}}</view>
+            <view class="second-level" wx:for="{{area.children}}" wx:if="{{city.children.length > 0}}"  wx:for-item="city" wx:for-index="cityIndex" wx:key="{{cityIndex}}">
+                <view class="city">{{city.region_name}}</view>
+                <view class="three-level">
+                    <view class="after-line {{shop.checked ? 'select-item' : ''}}" wx:for="{{city.children}}" wx:for-item="shop" wx:for-index="shopIndex" wx:key="{{shopIndex}}" bindtap="checkItem" data-g="{{areaIndex}}" data-f="{{cityIndex}}" data-c="{{shopIndex}}">{{shop.shop_name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bg-container">
+        <button class="theme-button {{idList.length > 0 ? '' : 'disable-button'}}" bindtap="toOrder">确认</button>
+    </view>
+</view>

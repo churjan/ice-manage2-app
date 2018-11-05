@@ -1,0 +1,23 @@
+<view>
+	<view class='order-info'>
+		<view class='order-sn'>退货单号：{{data.list[0].return_sn}}</view>
+		<view>退货时间：{{data.list[0].create_time}}</view>
+		<view>制单人：{{data.list[0].originator}}</view>
+		<view>退货仓库：{{data.list[0].warehouse_name}}</view>
+	</view>
+	<view class='empty-line'></view>
+	<view class='order-list'>
+		<view class='order-list-title'>
+			<view>商品名称</view>
+			<view>数量</view>
+		</view>
+		<view class='order-list-total'>
+			<text>总计</text>
+			<text>{{data.list[0].goods_count}}</text>
+		</view>
+		<view class='order-list-item' wx:for="{{data.itemList}}" wx:key="{{index}}">
+			<view class="goods-name">{{item.g_sku_name}}</view>
+			<view>{{item.goods_count}}</view>
+		</view>
+	</view>
+</view>

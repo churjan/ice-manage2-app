@@ -1,0 +1,28 @@
+<import src="../../template/loading/loading.wxml"/>
+<view class='claim-goods stick-container'>
+	<view class='search-item-box'>
+		<view class='ice-header' bindtap='toWarehouse'>
+			<view class="ice-search">
+				<text>{{wareInfo.warehouse_name?wareInfo.warehouse_name:'全部仓库'}}</text>   
+			</view>
+			<image src="/pic/not-search.png" class="search-img {{isSearch ? 'serc-tran' : ''}}"></image>
+		</view>
+	</view>
+	<!-- 搜索下拉框 -->
+	<view class="search-content {{isSearch ? 'content-opa' : ''}}">
+		<view class="search-item" data-gwid="" bindtap='selectWarehouse' data-shopname="全部仓库">全部仓库</view>
+		<view class="ice-item">
+			<view class="search-item" wx:for="{{warehouseList}}" wx:key="id" data-shopname="{{item.warehouse_name}}" data-gwid="{{item.g_w_id}}" bindtap='selectWarehouse' data-shopid="{{item.shop_id}}">
+				{{item.warehouse_name}}
+			</view>
+		</view>
+	</view>
+	<order-list data="{{orderList}}" showOrderList="true" wx:if="{{orderList.length>0}}"></order-list>
+	<view class='empty' wx:if="{{orderList.length == 0 && isReady}}">
+		当前仓库无出库单
+	</view>
+</view>
+<view class="stick-footer" wx:if="{{orderList.length != 0}}">
+    <template is='loading' data='{{...loading}}'></template>	
+</view>
+	

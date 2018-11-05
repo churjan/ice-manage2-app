@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "取货",
+	"component": true,
+	"usingComponents": {
+		"order-list": "/components/order-list/order-list"
+	}
+}

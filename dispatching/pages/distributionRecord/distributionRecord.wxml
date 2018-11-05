@@ -1,0 +1,39 @@
+<import src="../../../template/date-picker/date-picker.wxml" />
+<view class='history-wrap stick-container'>
+    <view class='search-item-box'>
+        <picker mode='date' class='ice-header' bindchange='chooseTime' value='{{start_time}}' end='{{today}}'>
+            <view class="ice-search">
+                <image src="/pic/date.png" class='date-icon'></image>
+                <text>{{start_time}}</text> 至
+                <text>{{end_time}}</text>
+            </view>
+        </picker>
+    </view>
+
+
+    <view class='order-list'>
+        <view class='list-item' wx:for="{{orderList}}" wx:key="{{index}}" bindtap='toDetail' data-id="{{item.shop_outbound_id}}" data-index="{{index}}">
+            <view class='list-title'>
+                <text>配送单号: {{item.order_num}}</text>
+                <view>详情</view>
+            </view>
+            <view>设备数量：{{item.shops_count}}</view>
+            <view class='bottom'>
+                <view class='time'>配送地址：{{item.delivery_address}}</view>
+                <view class='status-item {{item.delivery_status == 2?"status-get":item.delivery_status == 3?"status-finish":""}}'>{{item.delivery_status == 2?'已领取':item.delivery_status == 3?'已完成':''}}</view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class='empty' wx:if="{{orderList.length == 0 && isReady}}">
+        暂无取货历史记录
+    </view>
+    <template is='date-picker' data='{{...pickerView}}' />
+</view>
+<view class="stick-footer">
+    <text wx:if="{{!allLoad}}">上滑加载更多退货单...</text>
+    <view wx:if="{{allLoad}}">
+        <text>已加载全部数据</text>
+    </view>
+</view>

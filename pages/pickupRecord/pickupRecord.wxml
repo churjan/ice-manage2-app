@@ -1,0 +1,22 @@
+<import src="../../template/date-picker/date-picker.wxml" />
+<import src="../../template/loading/loading.wxml"/>
+<view class='history-wrap stick-container'>
+	<view class='search-item-box'>
+		<picker mode='date' class='ice-header' bindchange='chooseTime' value='{{start_time}}' end='{{today}}'>
+			<view class="ice-search">
+				<image src="/pic/date.png" class='date-icon'></image>
+				<text>{{start_time}}</text>   
+				至
+				<text>{{end_time}}</text>
+			</view>
+		</picker>
+	</view>
+	<order-list data="{{orderList}}" showOrderList="true" wx:if="{{orderList.length>0}}"></order-list>
+	<view class='empty' wx:if="{{orderList.length == 0 && isReady}}">
+		暂无取货历史记录
+	</view>
+	<template is='date-picker' data='{{...pickerView}}' />
+</view>
+<view class='stick-footer' wx:if="{{orderList.length != 0}}">
+	<template is='loading' data='{{...loading}}'></template>
+</view>

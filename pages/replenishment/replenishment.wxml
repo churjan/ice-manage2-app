@@ -1,0 +1,38 @@
+<import src="../../template/finish_tip/finish_tip.wxml" />
+<view class="{{isShowCalibrat ? 'overflow-scroll' : ''}}">
+	<view class="replenishment">
+		<view class="nav-header after-box">{{shopname}}</view>
+		<!-- 商品列表 -->
+    	<sku-list bind:getIndex="getIndex" data="{{capture_goods}}" isReplenishment="true" wx:if="{{oper_status != 'shipment'}}" status="{{oper_status}}" isRfid="{{isRfid}}"></sku-list>
+		<!-- 差异 -->
+    	<sku-differ data="{{diff_goods}}" isReplenishment="true" wx:if="{{oper_status != 'shipment'}}" isReady="{{isReady}}"  isRfid="{{isRfid}}"></sku-differ>
+		<!--装货-->
+		<view class='open-item' wx:if="{{oper_status == 'shipment'}}">
+			<image src='/pic/door.png'></image>
+			<text>冰箱门已开，请将货物装入冰箱中</text>
+		</view>
+	</view>
+	<!-- 展示详情不显示 -->
+	<view wx:if="{{oper_status != 'shipment'}}">
+		<view class="comment">
+			<text>注：根据照片内标签寻找对应层数</text>
+		</view>
+	</view>
+    
+    <!-- 补货检查库存按钮 -->
+    <view class="operation" wx:if="{{oper_status == 'check'}}">
+        <view class="open-button" bindtap='toInventory' data-ice="{{ice_sn}}">数据出错</view>
+        <view class="put-button" bindtap='toShipment'>数据无误</view>
+    </view>
+	<!--补货装货按钮-->
+	<view class="operation" wx:if="{{oper_status != 'check'}}">
+        <view class="open-button" bindtap='correctType' data-ice="{{ice_sn}}">{{oper_status == 'calibration'?'校准':'临时开门'}}</view>
+        <form report-submit="true" bindsubmit="formSubmit">
+		    <button formType="submit" class="put-button" bindtap='effectShipment' wx:if="{{oper_status == 'shipment'}}">装货完成</button>
+		</form>
+        <view class="put-button" bindtap='replenishFinished' wx:if="{{oper_status == 'calibration'}}">补货完成</view>
+    </view>
+	<template is='finishTip' data='{{...tipData}}'></template> 
+    <!-- 手动校准 -->
+    <calibration bind:hiddenCalibrate="hiddenCalibrate" isShow="{{isShowCalibrat}}" data="{{capture_goods}}" sourceData="{{source_goods}}" diff="{{diff_goods}}" goodIndex="{{calibratIndex}}"></calibration>
+</view>

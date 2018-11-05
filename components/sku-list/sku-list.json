@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "sku-list-detail": "/components/sku-list-detail/sku-list-detail"
+    }
+}

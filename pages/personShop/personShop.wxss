@@ -1,0 +1,32 @@
+.person-shop{
+    background: #fff;
+}
+.person-title{
+    display: flex;
+    padding: 0 50rpx;
+}
+.total{
+    padding: 0 50rpx;
+}
+.item-list{
+    padding: 0 50rpx;
+}
+.col{
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+}
+.col view:first-child{
+    width: 325rpx;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.col view:nth-child(2){
+    text-align: right;
+    flex: 1;
+}
+.item-list .goods-name{
+    flex: 1 1 430rpx;
+}

@@ -1,0 +1,38 @@
+<import src="../../template/date-picker/date-picker.wxml" />
+<import src="../../template/loading/loading.wxml"/>
+<view class="replenishment-record stick-container-more">
+    <view class='search-item-box'>
+		<picker mode='date' class='ice-header' bindchange='chooseTime' value='{{start_time}}' end='{{today}}'>
+			<view class="ice-search">
+				<image src="/pic/date.png" class='date-icon'></image>
+				<text>{{start_time}}</text>   
+				至
+				<text>{{end_time}}</text>
+			</view>
+		</picker>
+	</view>
+    <view class="record-container after-line">
+        <!-- 标题 -->
+        <view class="title col">
+            <view>补货日期</view>
+            <view>门店</view>
+            <view class="{{sort == 0 ? 'sort-default' : sort == 1 ? 'sort-ascend' : 'sort-des'}}" bindtap="sort">补货数</view>
+        </view>
+        <!-- 总计 -->
+        <view class="total col">
+            <view>总计</view>
+            <view></view>
+            <view>{{total}}</view>
+        </view>
+        <view class="record-item col" wx:for="{{recordList}}" wx:key="{{index}}" data-id="{{item.rc_id}}" bindtap="navigatorDetail">
+            <view class="item-date">{{item.create_time}}</view>
+            <view class="item-shop-name">{{item.shop_name}}</view>
+            <view class="item-count">{{item.goods_count}}</view>
+        </view>
+    </view>
+    <template is='date-picker' data='{{...pickerView}}' />
+</view>
+<view class="stick-footer">
+    <text wx:if="{{!allLoad}}">上滑动加载更多补货记录...</text>
+    <text wx:if="{{allLoad}}">已加载全部数据</text>
+</view>

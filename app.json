@@ -1,0 +1,40 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/index/index",
+        "pages/inventory/inventory",
+        "pages/replenishment/replenishment",
+        "pages/allIce/allIce",
+        "pages/claimGoods/claimGoods",
+        "pages/pickupRecord/pickupRecord",
+        "pages/orderDetail/orderDetail",
+        "pages/doorIsOpen/doorIsOpen",
+        "pages/replenishmentRecord/replenishmentRecord",
+        "pages/replenishmentDetail/replenishmentDetail",
+        "pages/personShop/personShop",
+        "pages/goodsReturn/goodsReturn",
+        "pages/returnOrderDetail/returnOrderDetail",
+        "pages/addNewReturn/addNewReturn",
+        "pages/postReturn/postReturn"
+    ],
+    "subPackages": [
+        {
+            "root": "dispatching",
+            "pages": [
+                "pages/distributionList/distributionList",
+                "pages/takeDIstributionList/takeDIstributionList",
+                "pages/buildOrder/buildOrder",
+                "pages/distributionDetail/distributionDetail",
+                "pages/distributionRecord/distributionRecord",
+                "pages/await/await",
+                "pages/confirmSet/comfirmSet"
+            ]
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "购能量运营工具",
+        "navigationBarTextStyle": "black"
+    }
+}

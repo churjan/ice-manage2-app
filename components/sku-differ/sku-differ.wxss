@@ -1,0 +1,60 @@
+/* components/sku-differ/sku-differ.wxss */
+/* 详情/差异 */
+.result-list{
+    padding: 0 50rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+.detail-contain{
+    width: 100%;
+}
+.inventory-result .differ{
+    color: #df5050;
+    font-size: 32rpx;
+}
+.inventory-result .differ-item{
+    display: flex;
+    justify-content: space-between;
+    height: 120rpx;
+}
+.inventory-result .differ-item .left{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    line-height: 1;
+	overflow: hidden;
+	flex: 4;
+}
+.inventory-result .differ-item .left text{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.inventory-result .differ-item .right{
+    line-height: 1;
+    padding-top: 26rpx;
+	flex: 2;
+	text-align: right;
+}
+.inventory-result .differ-item .left .trade-sn{
+    margin-top: 15rpx;
+    color: #ababab;
+    font-size: 26rpx;
+}
+.inventory-detail .differ-item:first-child{
+    border-top: 1rpx solid #e5e5e5;
+}
+.inventory-picture{
+    padding: 30rpx 50rpx 0;
+    background: #f8f8f8;
+}
+.inventory-picture image{
+    width: 650rpx;
+}
+/* 注释 */
+.comment{
+    margin: 80rpx 50rpx 38rpx;
+    color: #ababab;
+    font-size: 26rpx;
+}

@@ -1,0 +1,123 @@
+.post-return{
+    background: #fff;
+}
+.search-area{
+    position: relative;
+    margin-top: 30rpx;
+}
+.ice-header{
+	width: calc(100vw - 60rpx);
+	height: 90rpx;
+    line-height: 90rpx;
+    margin:auto;
+	background: #fff;
+	font-size: 34rpx;
+	color: #6f6f6f;
+	border-radius: 20rpx;
+	border: 1rpx solid #ddd;
+}
+.search-img{
+    height: 21rpx;
+    width: 37rpx;
+    float: right;
+    margin-top: 33rpx;
+    margin-right: 30rpx;
+    transition: all 0.2s;
+}
+.serc-tran{
+    transform: rotateX(180deg);
+}
+.ice-search{
+    width: 590rpx;
+    height: 100%;
+    line-height: 90rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+	color: #6f6f6f;
+    font-size: 34rpx;
+    float: left;
+}
+/* 下拉内容区 */
+.search-content{
+    position: absolute;
+    height: auto;
+    background: #fff;
+    width: calc(100vw - 58rpx);
+    top: 90rpx;
+    left: 29rpx;
+    opacity: 0;
+    border: 1rpx solid #eee;
+    border-top: 0;
+	box-shadow: 1px 1px 10px #eee;
+}   
+.ice-item{
+    overflow-y: auto;
+    max-height: 400rpx;
+}
+.content-opa{
+    opacity: 1;
+    z-index: 999;
+    transition: all 0.6s;
+}
+.search-content .search-item{
+	padding-left: 30rpx;
+	line-height: 80rpx;
+    font-size: 30rpx;
+    color: #737373;
+}
+.select-img{
+	height: 10rpx;
+    width: 18rpx;
+    float: right;
+    margin-top: 45rpx;
+    margin-left: 10rpx;
+    transition: all 0.2s;
+}
+/* textarea */
+.post-main{
+    margin: 30rpx; 
+    z-index: -2;
+}
+.post-main{
+    border: 1rpx solid #ddd;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    color: #333;
+    font-size: 30rpx;
+}
+.post-content{
+    z-index: -99;
+}
+
+.main{
+    color: #545454;
+    padding: 0 50rpx;
+}
+.main view{
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #ddd;
+}
+.main .title{
+    font-size: 34rpx;
+    font-weight: bold;
+}
+.item{
+    display: flex;
+    justify-content: space-between;
+}
+.item .count::before{
+    content: '×';
+    font-size: 30rpx;
+    padding-right: 8rpx;
+}
+.back-hide{
+    width: 300px;
+    height: 150px;
+}
+.item .goods-name{
+    flex: 1 1 430rpx;
+}
+.item .count{
+    flex: 1;
+    text-align: right;
+}

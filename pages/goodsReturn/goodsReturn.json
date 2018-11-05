@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "退货单",
+    "component": true,
+    "usingComponents": {
+        "order-list": "/components/order-list/order-list"
+    }
+}

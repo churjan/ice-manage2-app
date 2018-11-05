@@ -1,0 +1,18 @@
+<!--components/sku-differ/sku-differ.wxml-->
+<view>
+    <!-- 差异 -->
+    <view class="inventory-result">
+        <view class="differ result-list">
+            <text> {{isReplenishment?[isReady?'补货数':'差异数']:data.count == 0 ?'本次盘点无差异':'盘点差异数:'}}{{data.count == 0?'':data.count}}</text>
+        </view>
+        <view class="differ-item result-list" wx:if="{{item.count != 0}}" wx:for="{{data.list}}" wx:key="{{index}}">
+            <view class="left">
+                <text>{{item.g_sku_name}}</text>
+                <text class="trade-sn">{{item.barcode}}</text>
+            </view>
+            <view class="right">
+                 {{isReplenishment?[isReady?'补货数':'差异数']:'差异数'}}：{{isRfid?item.diff_count:item.count}}
+            </view>
+        </view>
+    </view>
+</view>

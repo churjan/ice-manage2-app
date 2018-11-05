@@ -1,0 +1,16 @@
+<!--components/sku-list/sku-list.wxml {{isReplenishment?'':'after-box'}}"-->
+<view class="ice-detail-list after-box">
+    <view class="list-item">
+        <text class="item-label">SKU总数：{{data.sku_count}}</text>
+        <text>总商品数：{{data.goods_count}}</text>
+    </view>
+    <view class="list-item sku-item" wx:for="{{data.list}}" wx:key="{{index}}">
+        <view class="list-item-pd" bindtap='pullDetail' data-index="{{index}}">
+            <text class="{{isRfid?'rf-item-label':'item-label'}}">{{item.camIndex>0?'第'+item.camIndex+'层：':''}}{{isRfid?'':'SKU数：'}}{{isRfid?item.g_sku_name:item.sku_count}}</text>
+            <text class="{{isRfid?'rf-item-count':''}}">{{!isRfid?'商品数：':''}}{{isRfid?item.count:item.goods_count}}</text>
+            <image src='/pic/not-search-black.png' class="not-pull {{(showDetail && skuIndex == index) ? 'pull-detail' : ''}}"></image>
+        </view>
+        <!-- 盘点/补货详情 -->
+        <sku-list-detail status="{{status}}" bind:getIndex="getIndex" index="{{(showDetail && skuIndex == index) ? true : false}}" class="slide-default {{(showDetail && skuIndex == index)? 'slide-detail' : ''}}" data="{{item}}" isRfid="{{isRfid}}" dataIndex="{{index}}"></sku-list-detail>
+    </view>
+</view>

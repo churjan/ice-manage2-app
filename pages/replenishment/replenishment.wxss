@@ -1,0 +1,57 @@
+@import '../../template/finish_tip/finish_tip.wxss';
+.replenishment{
+	min-height:calc(100vh - 350rpx);
+	padding-top: 130rpx;
+}
+.nav-header{
+    text-align: center;
+	width: 100%;
+    height: 130rpx;
+    line-height: 100rpx;
+    border-top: 2rpx solid #e5e5e5;
+    color: #333333;
+	background: #fff;
+    font-size: 32rpx;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+}
+.comment{
+    color: #ababab;
+    font-size: 26rpx;
+	padding-top: 10rpx;
+	margin-left: 50rpx;
+	padding-bottom: 162rpx;
+}
+.ice-detail-list .list-item:last-child{
+	border-bottom: none;
+}
+.open-item{
+	text-align: center;
+	padding-top: 300rpx;
+}
+.open-item image{
+	display: block;
+	width:170rpx;
+	height: 150rpx;
+	margin: 0 auto;
+}
+.open-item text{
+	display: block;
+	font-size: 32rpx;
+	color: #333;
+	font-weight: bold;
+	margin-top: 80rpx;
+}
+.put-button{
+    width:294rpx;
+    height:94rpx;
+    line-height:94rpx;
+    text-align:center;
+    border:3rpx solid#f7941e;
+    border-radius:10rpx;
+    color:#f7941e;
+}
+.put-button::after{
+    border: none;
+}

@@ -1,0 +1,17 @@
+.open-item{
+	text-align: center;
+	padding-top: 300rpx;
+}
+.open-item image{
+	display: block;
+	width:170rpx;
+	height: 150rpx;
+	margin: 0 auto;
+}
+.open-item text{
+	display: block;
+	font-size: 32rpx;
+	color: #333;
+	font-weight: bold;
+	margin-top: 80rpx;
+}

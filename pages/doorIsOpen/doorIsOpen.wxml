@@ -1,0 +1,6 @@
+<view>
+	<view class='open-item'>
+		<image src='/pic/door.png'></image>
+		<text>冰箱门已开，请将货物装入冰箱中</text>
+	</view>
+</view>

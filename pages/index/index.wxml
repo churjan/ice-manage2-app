@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class=''>
+    <view class="ice-infomation">
+		<view class='ice-top'>
+			<view class='info-item'>
+				Hi,{{real_name}}
+			</view>
+			<view class='info-right'>
+				<view class='team right-item' bindtap='toShowTeam'>团队</view>
+				<text class='right-item'>|</text>
+				<view  class='right-item' bindtap='toRecord'>记录<image src="/pic/select_ic.png" class="select-img {{isSelect ? 'serc-tran' : ''}}"></image></view>
+				<view class='record-list' wx:if="{{isSelect}}">
+					<view bindtap="replenRecord">补货记录</view>
+					<view bindtap='goodsRecord'>取货记录</view>
+					<view bindtap='distributionRecord'>配送单记录</view>
+				</view>
+			</view>
+		</view>
+        <view class='ice-header' bindtap='toRefrigerator'>
+            <view class="ice-search">
+                <text>{{iceInfo.shop_name?iceInfo.shop_name:'选择购能量便利盒'}}</text>   
+            </view>
+            <image src="/pic/not-search.png" class="search-img {{isSearch ? 'serc-tran' : ''}}"></image>
+        </view>
+    	<!-- 搜索下拉框 -->
+        <view class="search-content {{isSearch ? 'content-opa' : ''}}">
+            <view class="search-item" data-iceid="" bindtap='selectIce'>全部冰箱</view>
+            <view class="ice-item">
+                <view class="search-item" wx:for="{{searchList}}" wx:key="id" data-shopname="{{item.shop_name}}" data-shoptype="{{item.shop_type}}" data-iceid="{{item.shop_sn}}" bindtap='selectIce' data-shopid="{{item.shop_id}}">
+                    {{item.shop_name}}
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 补货数据 -->
+	<view class='datas-item' wx:if="{{isSender}}">
+		<view wx:for="{{navShop}}" wx:key="{{index}}" data-type="{{item.type}}" data-url="{{item.path}}" class="{{index == 1 ? 'datas-center' : ''}}" data-count="{{item.count}}" bindtap='navigatoRecord'>	
+			<text>{{item.count}}</text>
+			<text>{{item.text}}</text>
+		</view>
+	</view> 
+
+   	<view class='ice-contain' bindtap='hideSearch'>
+		<view class="ice-list">
+            <button class="list-item" wx:for="{{navTop}}" data-url="{{item.url}}" data-name="{{item.name}}" bindtap='navigatorUrl' wx:key="index" wx:if="{{item.checked}}">
+                <image src='{{item.ico}}'></image>
+                <view class="item-cn">{{item.name}}</view>
+            </button>    
+        </view>
+   	</view>
+	<currentTeam wx:if="{{showTeam}}" isCaptain="{{isCaptain}}" data="{{navList}}" showTeam="{{showTeam}}" memberList="{{memberList}}" bind:hideTeamFloat="hideTeamFloat" bind:addMember="addMember" bind:deleteMember="deleteMember" curTap="{{showGet}}"></currentTeam>
+</view>

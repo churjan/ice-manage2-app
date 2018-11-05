@@ -1,0 +1,28 @@
+<import src="../../template/finish_tip/finish_tip.wxml" />
+<view class="{{isShowCalibrat ? 'overflow-scroll' : ''}}">
+	<view class="sku-contain">
+		<view class="nav-header after-box">{{shopname}}</view>
+		<!-- 盘点列表 -->
+		<sku-list bind:getIndex="getIndex" status="true" data="{{capture_goods}}" isRfid="{{isRfid}}"></sku-list>
+		<!-- 盘点差异 -->
+		<sku-differ data="{{diff_goods}}" isRfid="{{isRfid}}"></sku-differ>
+		<!-- 按钮 -->
+		<view class="operation" hidden="{{status !== 'NOREADY'}}">
+			<view class="open-button" bindtap="correctType">开门纠错</view>
+			<view class="put-button" bindtap="push">提交盘点</view>
+		</view>
+        <view class="operation" hidden="{{status !== 'ALREADY'}}">
+			<view class="open-button" bindtap="again">重新盘点</view>
+            <form report-submit="true" bindsubmit="formSubmit">
+			    <button formType="submit" class="put-button" bindtap="goReplenishment">开始补货</button>
+		    </form>
+		</view>
+		<template is='finishTip' data='{{...tipData}}'></template> 
+	</view>
+	<!-- 注 -->
+	<view class="comment">
+		<text></text>
+	</view>
+    <!-- 手动校准 -->   
+    <calibration wx:if="{{isShowCalibrat}}" bind:hiddenCalibrate="hiddenCalibrate" isShow="{{isShowCalibrat}}" sourceData="{{source_goods}}" data="{{capture_goods}}" diff="{{diff_goods}}" goodIndex="{{calibratIndex}}"></calibration>
+</view>

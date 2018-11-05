@@ -1,0 +1,21 @@
+<view class="stick-container">
+    <view class='order-list'>
+        <view class='list-item' wx:for="{{data}}" wx:key="{{index}}" bindtap='toDetail' data-id="{{item.shop_outbound_id}}" data-index="{{index}}">
+            <view class='list-title'>
+                <text>配送单号: {{item.order_num}}</text>
+                <view>详情</view>
+            </view>
+            <view>设备数量：{{item.shops_count}}</view>
+            <view class="ellipsis">配送地址：{{item.delivery_address}}</view>
+        </view>
+    </view>
+    <view class='empty' wx:if="{{data.length == 0}}">
+		当前无配送单可领
+	</view>
+</view>
+<view class="stick-footer">
+    <text wx:if="{{!allLoad}}">上滑加载更多退货单...</text>
+    <view wx:if="{{allLoad}}">
+        <text>已加载全部数据</text>
+    </view>
+</view>

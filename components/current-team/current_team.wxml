@@ -1,0 +1,26 @@
+<view id='teamChoosed' class='team-choosed' wx:if="showTeam">
+	<view class='team-item'>
+		<view class='operation'>
+			<image src="../../pic/big_close_ico.png" bindtap='hideTeamFloat'></image>
+			<view class='oper-title'>当前团队</view>
+			<view class='oper-do' bindtap='toGetTask' wx:if="{{curTap == 'toGet'}}">领单</view>
+		</view>
+		<view class='search-item'>
+			<image src='/pic/search_ice.png' class="search-ico"></image>
+			<input class="search-input" bindinput='toSearchMember' data-value="{{value}}" placeholder='添加配送员' bindtap='toSearchMember'></input>
+		</view>
+		<view class='pull-search-item' wx:if="{{searchMember}}">
+			<view class='pull-search' wx:if="{{searchResult.length>0}}" wx:for="{{searchResult}}" wx:key="{{index}}" bindtap='addMember' data-name="{{item.real_name}}" data-id="{{item.id}}">{{item.real_name}}</view>
+			<view class='pull-search' wx:if="{{searchResult.length==0}}" style="text-align:center">无匹配结果</view>			
+		</view>
+		<view class='search-line'>团队成员</view>
+		<view class='people-list'>
+			<view class='list-item' wx:for="{{memberList}}" wx:key="{{index}}"> 
+				<image class='member-sign {{item.is_captain == 1?"memer-sign-mem":"memer-sign-cap"}}' src="{{item.is_captain == 1 ?'../../pic/member.jpg':'../../pic/flag.png'}}"></image>				
+				<text class='member-sign'>{{item.delivery_user_name}}</text>
+				<image class='member-oper' src="../../pic/big_close_ico.png" bindtap='deleteMember' wx:if="{{item.is_captain == 1 && isCaptain == 2}}" data-delid="{{item.delivery_id}}" data-name="{{item.delivery_user_name}}" data-index="{{index}}" data-id="{{item.delivery_user_id}}"></image>
+				<text class='member-oper' wx:if="{{item.is_captain == 2 && isCaptain == 2}}">队长</text>
+			</view>
+		</view>
+	</view>
+</view>

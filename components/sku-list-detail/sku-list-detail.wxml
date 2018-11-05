@@ -1,0 +1,21 @@
+<!--components.wxml-->
+<!-- 盘点详情 -->
+<view class="detail-contain {{index ? 'slide-detail' : ''}}" animation="{{animationData}}">
+    <view class="inventory-result inventory-detail">
+        <view class="differ-item result-list" wx:for="{{data.list}}" wx:key="{{index}}">
+            <view class="left">
+                <text>{{isRfid?item.rfid:item.g_sku_name}}</text>
+                <text class="trade-sn" wx:if="{{!isRfid}}">{{item.barcode}}</text>
+            </view>
+            <view class="right" wx:if="{{!isRfid}}">
+                数量：{{item.count}}
+            </view>
+        </view>
+    </view>
+    <view class="inventory-picture" wx:if="{{!isRfid}}">
+        <image src="{{data.image?data.image:''}}" bindtap='previewImage' data-url="{{data.image}}"></image>
+    </view>
+	<view class="inventory-btn" wx:if="{{!isRfid && data.sku_count>0 && status != 'check'}}">
+		<button bindtap='getIndex'>进入手动校准</button>
+	</view>
+</view>

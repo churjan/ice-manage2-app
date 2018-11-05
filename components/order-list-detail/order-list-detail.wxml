@@ -1,0 +1,29 @@
+<view>
+	<view class='order-info'>
+		<view class='order-sn'>出库单号：{{data.detail.order_num}}</view>
+		<view>出库门店：{{data.detail.shop_name}}</view>
+		<view>出库SKU数：{{data.detail.sku_count}}  出库商品数：{{data.detail.goods_count}}</view>
+		<view>出库日期：{{data.detail.create_time}}</view>
+		<view>出库类型：{{data.detail.order_type == 1?'商品出库':data.detail.order_type == 2?'采购出库':''}}</view>
+	</view>
+	<view class='empty-line'></view>
+	<view class='order-list'>
+		<view class='order-list-title'>
+			<view>商品名称</view>
+			<view>出库数量</view>
+		</view>
+		<view class='order-list-total'>
+			<text>总计</text>
+			<text>{{data.detail.goods_count}}</text>
+		</view>
+		<view class='order-list-item' wx:for="{{data.list}}" wx:key="{{index}}">
+			<view class="goods-name">{{item.g_sku_name}}</view>
+			<view>{{item.goods_count}}</view>
+		</view>
+	</view>
+	<view class='order-btn' wx:if="{{data.detail.is_deliveryman_get && data.detail.is_deliveryman_get != 3}}">
+		<button wx:if="{{data.detail.is_deliveryman_get==2}}" bindtap='toFinish'>补货完成</button>
+		<button wx:else bindtap='getTask'>领取</button>
+	</view>
+	<currentTeam wx:if="{{showTeam}}"  isCaptain="{{isCaptain}}" data="{{navList}}" showTeam="{{showTeam}}" memberList="{{memberList}}" bind:hideTeamFloat="hideTeamFloat" bind:addMember="addMember" bind:deleteMember="deleteMember"  curTap="toAdd" isCaptain="{{isCaptain}}"></currentTeam>
+</view>

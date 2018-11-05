@@ -1,0 +1,23 @@
+<view class="replenishment">
+	<view class='order-info'>
+		<view class='order-sn'>补货单</view>
+		<view>补货门店：{{data.detail.shop_name}}</view>
+		<view>补货时间：{{data.detail.create_time}}</view>
+		<view>sku数：{{data.detail.sku_count}}  商品数：{{data.detail.goods_count}}</view>
+	</view>
+    <view class="after-box"></view>
+	<view class='order-list'>
+		<view class='order-list-title'>
+			<view>商品名称</view>
+			<view>入店数</view>
+		</view>
+		<view class='order-list-total'>
+			<text>总计</text>
+			<text>{{data.detail.goods_count}}</text>
+		</view>
+		<view class='order-list-item' wx:for="{{data.list}}" wx:key="{{index}}">
+			<view class="goods-name">{{item.g_sku_name}}</view>
+			<view>{{item.entry_count}}</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,94 @@
+.more{
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+.order-info{
+	padding: 30rpx 50rpx;
+	background: #fff;
+	font-size: 26rpx;
+	color: #545454;
+    line-height: 1;
+}
+.order-info view{
+    padding: 10rpx 0;
+}
+.order-sn{
+	line-height: 36rpx;
+	margin-bottom: 20rpx;
+	font-size: 36rpx;
+	color: #333;
+	font-weight: bold;
+}
+.order-list{
+	background: #fff;
+	padding: 0 50rpx;
+	padding-bottom: 140rpx;
+}
+.order-list-title{
+	line-height: 90rpx;
+	font-size: 30rpx;
+	color: #333;
+	font-weight: bold;
+	display: flex;
+	border-bottom: 1rpx solid #ddd;
+}
+.order-list-title view{
+	flex: 1;
+}
+.order-list-title view:nth-of-type(2){
+	text-align: right;
+}
+.order-list-total,.order-list-item{
+	line-height: 90rpx;
+	font-size: 30rpx;
+	color: #333;
+	display: flex;
+    align-items: center;
+	border-bottom: 1rpx solid #ddd;
+}
+.order-list-total text{
+	flex: 1;
+}
+.order-list-total text:nth-of-type(2){
+	text-align: right;
+}
+.order-list-item view:nth-of-type(1){
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.order-list-item view:nth-of-type(2){
+	text-align: right;
+}
+.order-btn{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 20rpx 0rpx;
+	background: #fff;
+	border-top: 1rpx solid #ddd;
+	box-shadow: 1px -2px 10rpx #ddd;
+}
+.order-btn button{
+	width: 680rpx;
+	height: 100rpx;
+	margin: 0 auto;
+	color: #fff;
+	font-size: 36rpx;
+	line-height: 100rpx;
+	background: #f7941e;
+}
+.order-list-item .goods-name{
+    flex: 1 1 430rpx;
+}
+.dev-info{
+    font-size: 30rpx;
+    color: #ababab;
+    margin:0 0 40rpx 40rpx;
+    line-height: 1;
+    margin-top: 10rpx;
+}
+.dev-info view:first-child{
+    margin-bottom: 24rpx;
+}

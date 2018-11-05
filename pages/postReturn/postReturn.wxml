@@ -1,0 +1,35 @@
+<view bindtap='hideSearch' class="stick-container post-return">
+<!-- 搜索区域 -->
+    <view class="after-box">
+        <view class="search-area">
+            <view class='ice-header' catchtap='toRefrigerator'>
+                <view class="ice-search">
+                    <text>{{storeInfo.warehouse_name?storeInfo.warehouse_name:'选择仓库'}}</text>   
+                </view>
+                <image src="/pic/not-search.png" class="search-img {{isSearch ? 'serc-tran' : ''}}"></image>
+            </view>
+            <!-- 搜索下拉框 -->
+            <view class="search-content {{isSearch ? 'content-opa' : ''}}">
+                <view class="ice-item">
+                    <view class="search-item" wx:for="{{warehouseList}}" wx:key="id" data-shopitem="{{item}}" catchtap='selectStore'>
+                        {{item.warehouse_name}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="post-main">
+            <textarea hidden="{{isSearch}}" placeholder="退货原因" placeholder-class="post-content" bindinput="getReason"></textarea>
+            <view class="back-hide" hidden="{{!isSearch}}">{{reason}}</view>
+        </view>
+    </view>    
+    <view class="main">
+        <view class="title">当前已选退货商品：</view>
+        <view class="item" wx:for="{{returnList}}" wx:key="{{index}}">
+            <view class="goods-name ellipsis">{{item.g_sku_name}}</view>
+            <view class="count">{{item.goods_count}}</view>
+        </view>
+    </view>
+</view>
+<view class="bg-container">
+    <button class="theme-button {{canClick ? '' : 'disable-button'}}" bindtap="toNewReturn">提交退货单</button>
+</view>

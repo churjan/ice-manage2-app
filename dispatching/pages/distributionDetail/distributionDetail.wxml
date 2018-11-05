@@ -1,0 +1,40 @@
+<view>
+    <view class="replenishment">
+        <view class='order-info'>
+            <view class='order-sn'>配送单号：{{data.order_num}}</view>
+            <view>设备数量：{{data.shops_count}}</view>
+            <view>配送地址：{{data.delivery_address}}</view>
+            <view>生成日期：{{data.create_time}}</view>
+            <view v-if="{{isRecord}}">领取日期：{{data.receive_time}}</view>
+        </view>
+        <view class="after-box"></view>
+        <view class='order-list'>
+            <view class='order-list-item' wx:for="{{data.shops}}" wx:key="{{index}}">
+                <view class="goods-name">{{item.shop_name}}</view>
+                <view class="status-item status-wait" wx:if="{{item.open_status == 1}}">营业中</view>
+                <view class="status-item status-wait" wx:if="{{item.open_status == 2}}">待营业</view>
+                <view class="status-item status-wait" wx:if="{{item.open_status == 3}}">已停业</view>
+                <view class="status-item status-wait" wx:if="{{item.open_status == 4}}">在工厂</view>
+                <view class="status-item status-wait" wx:if="{{item.open_status == 5}}">在仓库</view>
+                <view class="status-item status-get" wx:if="{{item.open_status == 6}}">配送中</view>
+            </view>
+        </view>
+    </view>
+    <!-- 浮层 -->
+    <view class="float-floor" catchtap='hideFloat' wx:if="{{showFloat}}" data-hide="true">
+        <view class="float-main">
+            <view class="title">领取配送单</view>
+            <view class="dev-info">
+                <view>设备数量：{{data.shops_count}}</view>
+                <view>当前单号：{{data.order_num}}</view>
+            </view>
+            <view class="float-button">
+                <view class="cancel-button" data-hide="true" catchtap='hideFloat'>取消</view>
+                <view class="confirm-button" bindtap="confirm">确认</view>
+            </view>
+        </view>
+    </view>
+    <view class="bg-container" wx:if="{{!isRecord}}">
+        <button class="theme-button" bindtap="takeOrder">领取</button>
+    </view>
+</view>

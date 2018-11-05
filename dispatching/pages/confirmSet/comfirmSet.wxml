@@ -1,0 +1,44 @@
+<view>
+    <view class="replenishment">
+        <view class='order-info'>
+            <view class='order-sn'>{{data.shop_name}}</view>
+            <view>配送地址：{{data.shop__outbounds.delivery_address}}</view>
+            <view>配送单号：{{data.shop__outbounds.order_num}}</view>
+        </view>
+        <view class="after-box"></view>
+        <view class='pic-main'>
+            <view class="remind">请上传设备布点成功不同角度照片，至少三张</view>
+            <view class="pic-list">
+                <view class="image-item" wx:for="{{imageList}}" wx:key="{{index}}">
+                <!-- 上传显示 -->
+                    <view class="up-image">
+                        <image mode="widthFix" src="{{item}}" class="up-image-item"></image>
+                        <image src="../../../pic/remove-pic.png" class="remove-item" bindtap="removeItem" data-index="{{index}}"></image>
+                    </view>
+                </view>
+                <view class="image-item">
+                <!-- 未上传显示 -->
+                    <view class="bg-img" bindtap='upFile'>
+                        <image mode="widthFix" src="../../../pic/add-pic.png"></image>
+                    </view>
+                </view>    
+            </view>
+        </view>
+    </view>
+    <!-- 浮层 -->
+    <view class="float-floor" catchtap='hideFloat' wx:if="{{showFloat}}" data-hide="true">
+        <view class="float-main">
+            <view class="title">确认布点</view>
+            <view class="dev-info">
+                <view class="sure-center">{{data.shop__outbounds.delivery_address}}</view>
+            </view>
+            <view class="float-button">
+                <view class="cancel-button" data-hide="true" catchtap='hideFloat'>取消</view>
+                <view class="confirm-button" bindtap="confirm">确认</view>
+            </view>
+        </view>
+    </view>
+    <view class="bg-container">
+        <button class="theme-button" bindtap="sure">确认布点</button>
+    </view>
+</view>

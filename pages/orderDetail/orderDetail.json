@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "出库单详情",
+	"component": true,
+	"usingComponents": {
+		"order-list-detail": "/components/order-list-detail/order-list-detail"
+	}
+}

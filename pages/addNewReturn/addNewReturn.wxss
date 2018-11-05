@@ -1,0 +1,49 @@
+/* pages/addNewReturn/addNewReturn.wxss */
+.addNewReturn{
+    padding: 0 50rpx 140rpx;
+}
+.check-image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.check-image image{
+    width: 100%;
+    height: 100%;
+}
+.item{
+    height: 130rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #ddd;
+}
+.shop-info{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0 50rpx 0 30rpx;
+    width: 440rpx;
+    font-size: 28rpx;
+}
+.shop-info text:first-child{
+    color: #333333;
+}
+.shop-info text:nth-child(2){
+    color: #777777;
+}
+.input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90rpx;
+    height: 62rpx;
+    line-height: 62rpx;
+    font-size: 28rpx;
+    border: 1rpx solid #cacaca;
+    border-radius: 10rpx;
+    padding: 0 6rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+.color-input{
+    border: 1rpx solid #f7941e;
+}

@@ -1,0 +1,52 @@
+<!--components/calibration/calibration.wxml-->
+<view id="CAB" class="calibration" wx:if="{{isShow}}">
+    <view class="calibration-content">
+        <view class="title after-border">
+            <text>校准模式</text>
+            <image src="../../pic/big_close_ico.png" bindtap='hideFolat'></image>
+        </view>
+        <view class="list-item after-border">
+            <view class="item-label">
+                第{{goodIndex + 1}}层：SKU数：{{data.list[goodIndex].list.length}}
+            </view>
+            <view class="rf-item-count">
+                商品数：{{data.list[goodIndex].goods_count}}
+            </view>
+        </view>
+
+        <view class="inventory-picture">
+            <image src="{{data.list[goodIndex].image}}" bindtap="previewImage" class="not-pull" data-url="{{data.list[goodIndex].image}}"></image>
+            <view class="boxes {{clickIndex == index? 'current-boxes': ''}}" wx:key="{{index}}" wx:for="{{data.list[goodIndex].boxes}}" style="width: {{(item[2] - item[0])*0.5+ 'rpx'}};height: {{(item[3] - item[1])*0.5+ 'rpx'}};left: {{(item[0]+2)*0.5 + 'rpx'}}; top: {{(item[1]+2)*0.5 + 'rpx'}};"></view>
+        </view>
+
+        <view class="match-list after-border" bindtap="currentIndex">
+            <view wx:for="{{data.list[goodIndex].sku_list}}" wx:key="{{index}}" class="match-list-item {{(index+1)%6 === 0? 'not-margin' : ''}} {{clickIndex == index && ! item.isChange ? 'no-change-click' : clickIndex == index && item.isChange ? 'change-click' : ''}} {{item.isChange ? 'modify' : ''}}" data-index="{{index}}">
+                {{data.list[goodIndex].boxes[index][4] + '.' + item.g_sku_name}}
+            </view>
+        </view>
+
+        <view class="opera-button">
+            <view class="calibrate" bindtap='showSelect'>校准商品</view>
+            <view class="confirm" bindtap="confirm">确认</view>
+        </view>
+    </view>
+
+    <view class="isSelecting" wx:if="{{isSelecting}}">
+        <view class="second-float">
+            <view class="shop-info">
+                <text class="title">{{sourceData.list[goodIndex].sku_list[clickIndex].g_sku_name}}</text>
+            </view>
+            <view class="select-box" bindtap="turnImage">
+                <input data-focus='true' placeholder='请选择校准商品' placeholder-class='place-class' disabled value="{{selectInfo ? selectInfo.g_sku_name : ''}}"></input>
+                <image src="../../pic/not-search-black.png" class="search {{showSkuList ? 'has-search' : ''}}"></image>
+                <!-- 冰箱sku列表 -->
+                <view class="options" wx:if="{{showSkuList}}" bindtap='selectSku'>
+                    <view class="option-item {{item.barcode == selectCode ? 'selected' : ''}}" wx:for="{{iceSkuList}}" wx:key="{{index}}" data-info="{{item}}" >
+                        {{item.g_sku_name}}
+                    </view>
+                </view>
+            </view>
+            <view class="sellect-confirm" bindtap="skuConfirm">确认</view>
+        </view>
+    </view>
+</view>

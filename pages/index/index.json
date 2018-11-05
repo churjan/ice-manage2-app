@@ -1,0 +1,10 @@
+{
+    "disableScroll": true,
+	"navigationBarTitleText": "首页",
+	"usingComponents": {
+		"sku-list": "/components/sku-list/sku-list",
+		"sku-differ": "/components/sku-differ/sku-differ",
+		"calibration": "/components/calibration/calibration",
+		"currentTeam": "/components/current-team/current_team"
+	}
+}

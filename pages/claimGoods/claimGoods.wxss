@@ -1,0 +1,120 @@
+/* pages/claimGoods/claimGoods.wxss */
+@import '../../template/loading/loading.wxss';
+page{
+	background: #fff;
+}
+.claim-goods{
+    min-height: 100vh;
+    padding-bottom: 80rpx;
+    box-sizing: border-box;
+}
+.footer{
+    position: relative;
+    margin-top: -130rpx;
+}
+.search-item-box{
+	background: #f8f8f8;
+	padding: 25rpx 0;
+	border-bottom: 1rpx solid #ddd;
+}
+.ice-header{
+	width: calc(100vw - 60rpx);
+	height: 90rpx;
+    line-height: 90rpx;
+    margin:auto;
+	background: #fff;
+	font-size: 34rpx;
+	color: #6f6f6f;
+	border-radius: 20rpx;
+	border: 1rpx solid #f3f3f3;
+	box-shadow: 1px 1px 10px #f3f3f3;
+}
+.search-img{
+    height: 21rpx;
+    width: 37rpx;
+    float: right;
+    margin-top: 33rpx;
+    margin-right: 30rpx;
+    transition: all 0.2s;
+}
+.serc-tran{
+    /* transform: rotateZ(180deg); */
+    transform: rotateX(180deg);
+}
+.ice-search{
+    width: 590rpx;
+    height: 100%;
+    line-height: 90rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+	color: #6f6f6f;
+    font-size: 34rpx;
+    float: left;
+}
+.search-input{
+    height: 100%;
+    color: #c6dfda;
+	border-radius: 15rpx;
+}
+.ice-contain{
+    margin: 96rpx 50rpx 0;
+    height: 468rpx;
+}
+.ice-list{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40rpx;
+}
+.search-content{
+    position: absolute;
+    z-index: -1;
+    background: #fff;
+    width: calc(100vw - 58rpx);
+    top: 106rpx;
+    left: 29rpx;
+    opacity: 0;
+    transition: all 0.6s;
+    border: 1rpx solid #ddd;
+    border-top: 0;
+	box-shadow: 1px 1px 10px #ddd;
+}   
+.ice-item{
+    overflow-y: auto;
+    max-height: 400rpx;
+}
+.content-opa{
+    opacity: 1;
+    z-index: 999;
+}
+.search-content .search-item{
+    /* padding: 0 0 58rpx 30rpx; */
+	padding-left: 30rpx;
+	line-height: 80rpx;
+    font-size: 30rpx;
+    color: #737373;
+}
+.list-item{
+	padding: 30rpx 50rpx;
+	border-bottom: 1rpx solid #ddd;
+	font-size: 26rpx;
+	color: #545454;
+}
+.list-title{
+	display: flex;
+	font-size: 30rpx;
+	color: #333;
+	font-weight: bold;
+
+}
+.list-title view{
+	flex: 1;
+	text-align: right;
+	color: #f7941e;
+}
+.empty{
+	width: 100%;
+	padding-top: 380rpx;
+	color: #ababab;
+	font-size: 38rpx;
+	text-align: center;
+}
